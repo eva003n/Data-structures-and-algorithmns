@@ -10,6 +10,8 @@ let element = 50;
 
 //custom method
 
+console.log("Insert at the beginning");
+console.log("Custom method");
 console.log("Before insertion");
 // console.log(arr.splice(0, n).join(" "));
 //reverse traversal
