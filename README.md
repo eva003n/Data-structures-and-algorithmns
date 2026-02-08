@@ -20,7 +20,7 @@ Update − Algorithm to update an existing item in a data structure.
 
 Delete − Algorithm to delete an existing item from a data structures
 
-Problems that can be dolved using data strucres are
+Problems that can be solved using data strucres are
 - Fibonacci number series
 - Knapsack problem
 - Tower of Hanoi
@@ -40,7 +40,7 @@ Foundational terms of a data structures
 3. Space complexity - the memory usage of a data structure operation should be as little as possible
 
 #### Execution Time Cases
-here are three cases which are usually used to compare various data structure's execution time in a relative manner.
+Here are three cases which are usually used to compare various data structure's execution time in a relative manner.
 
 - Worst Case − This is the scenario where a particular data structure operation takes maximum time it can take. If an operation's worst case time is ƒ(n) then this operation will not take more than ƒ(n) time where ƒ(n) represents function of n.
 
