@@ -136,4 +136,42 @@ whare c is the time taken(no of steps) and n is the input size
 Meaning the time taken increses linearly as input grows
 
 ### Asymptotic analysis
+Involves computing the approximate running time of any operations in mathematical units fo compuation
 
+Usually, the time required by an algorithm falls under three types −
+
+- Best Case − Minimum time required for program execution.
+
+- Average Case − Average time required for program execution.
+
+- Worst Case − Maximum time required for program execution.
+
+Used to represent the complexity of an algorithm excluding that are machine independent eg processor speed disk i/o speed
+#### Asymptotic Notations
+Used to represent the complexity of an algorithm 
+
+They include:
+- O − Big Oh Notation
+- Ω − Big omega Notation
+- θ − Big theta Notation
+- o − Little Oh Notation
+- ω − Little omega Notation
+
+##### Big O Upper bound
+Measures the performance of any algorithm by providing the order of growth of the function
+
+This is the upper bound of an algorithms running time thus it will never grow above this limit
+
+Not the actual running time just the approximate running time
+
+Tools to find the growth rate of a algorithm without plugging diiferent inpurs of n
+Measures the worst case time complexity
+##### Big Omega Lower bound
+This is the lower bound of an algorithms running time
+
+##### Guidlines for asymptotic analysis
+1. Count loops
+2. Multiply nesting
+3. Check for halving (log)
+4. Add sequential blocks
+5. Keep biggest term only
