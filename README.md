@@ -175,3 +175,56 @@ This is the lower bound of an algorithms running time
 3. Check for halving (log)
 4. Add sequential blocks
 5. Keep biggest term only
+
+### Data structures
+This is just a way to store, organise, and manipulate data so that is efficient to retrieve and process
+###### Types of data structures
+- Linear data structures
+- Non linear data structures
+
+![Diagram showing types of data structures](/assets/images/data_structures_and_types.jpg)
+
+#### Linear data structures
+Data is stored sequentially in memory(one after another)
+
+Linear data structures are usually easy to implement but since the memory allocation might become complicated, time and space complexities increase.
+
+they include:
+- Arrays
+- Linked lists
+- Stacks
+- Queuss
+
+based on the data storage methods this type of data structures can be divided into sub types which include
+- Static data structures
+- Dynamic dat structures
+##### Static linear data structure
+The memory allocation is not scalable
+
+This servers a a drawback since allocating more memory than is required my lead to memory leaks and wastage
+
+A good example for this is an array
+###### Array Data structures
+- [Arrays]()
+##### Dynamic dat structures 
+The memory allocation is done dynamically when required
+
+These data structures are efficient considering the space complexity of the program.
+
+Examples are linked list, stacks and queues
+#### Non-Linear Data Structures
+Data is stored in a hierachy thus data can be found in multiple levels which is diffivult to traverse through
+
+![Diagram showing strucutres of a non linear data structure](/assets/images/non_linear_data_structures.jpg)
+
+These data strucures were designed to solve the problem of linear data structures in terms of space complexity. Linear data structures consume a memory block of space sinces elements are storesd sequentially which means if they dont use the entire assigned memory they waste the rest
+
+They decrese space complexity and use memory optimally
+
+They include
+- Graphs
+- Trees
+- Tries
+- Maps
+
+
