@@ -2,29 +2,27 @@
 
 int main()
 {
-    int arr[6] = {1, 2, 3, 4, 5};
+    int n = 5; // valid elements
+    int arr[] = {1, 2, 3, 4, 5, 0};
     int length = sizeof(arr) / sizeof(int);
     int i, position = 2;
     int element = 10; // element to insert
     
 
     // reverse traverse
-    for (i = length - 1; i >= 0; i--)
+    for (i = n; i >= position; i--)
     {
-        
-        // shift each element to the right
-        arr[i + 1] = arr[i];
-        // insert at start
-        if (i == 0)
-        {
-            arr[i] = element;
-        }
-    }
+        // shift each element to the right until specific position
+        arr[i] = arr[i - 1];
 
-    // print the array
+    }
+    // insert at position
+    arr[position - 1] = element;
+
+    // print the new array
     for (i = 0; i < length; i++)
     {
-        printf("%d, ", arr[i]);
+        printf("arr[%d] = %d\n", i, arr[i]);
     }
 
     return 0;
