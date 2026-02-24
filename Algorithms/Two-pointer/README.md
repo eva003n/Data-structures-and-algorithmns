@@ -5,7 +5,7 @@ With pointers at two different positions, we can compare the elements at those p
 
 The pointer here is a variable that represent an index in a linear data structure
 
-The problenm that this algorithm solves it that it prevent usage of nested loops which have a time complexity of O(n^2) and dont take advantage of predictive dynamics
+The problem that this algorithm solves it that it prevent usage of nested loops which have a time complexity of O(n^2) and don't take advantage of predictive dynamics
 
 ### Two pointer strategies
 Take a time complexity of O(n)
@@ -38,7 +38,7 @@ Similar to unidirectional traversal, both pointers serve different purposes. Her
 
 #### Real world use case
 ##### Garbage collection
-We have two pointers scan pointer and free pointer(next avaliable memory to relocate live objects), scan pointer traverse while skipping dead objects shifting live objects to the location pointed to by the free ponter
+We have two pointers scan pointer and free pointer(next available memory to relocate live objects), scan pointer traverse while skipping dead objects shifting live objects to the location pointed to by the free pointer
 
 
 #### Outline
