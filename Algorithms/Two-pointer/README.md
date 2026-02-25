@@ -7,6 +7,7 @@ The pointer here is a variable that represent an index in a linear data structur
 
 The problem that this algorithm solves it that it prevent usage of nested loops which have a time complexity of O(n^2) and don't take advantage of predictive dynamics
 
+Only works on sorted arrays
 ### Two pointer strategies
 Take a time complexity of O(n)
 
@@ -17,6 +18,10 @@ This approach has pointers starting at opposite ends of the data structure and m
 
 The pointers move toward the center, adjusting their positions based on comparisons, until a certain condition is met, or they meet/cross each other. This is ideal for problems where we need to compare elements from different ends of a data structure.
 
+##### Steps
+1. Take the first element and last element of a sorted array and sum them 
+2. If the sum is less than target increment the left pointer aiming to increment the sum towards target otherwise decrement the the right pointer aiming to decrement the sum towards the target
+3. If the sum is equal to target return their indexes
 #### Unidirectional traversal
 In this approach, both pointers start at the same end of the data structure (usually the beginning) and move in the same direction:
 
@@ -46,3 +51,8 @@ We have two pointers scan pointer and free pointer(next available memory to relo
 ![Diagram representing two pointer outline](/assets/images/two-pointer-outline.svg)
 
 The two-pointer pattern is very versatile and, consequently, quite broad. As such, we want to cover more specialized variants of this algorithm in separate chapters, such as Fast and Slow Pointers and Sliding Windows.
+
+
+##### Problems
+
+#### Pair sum(Sorted)
