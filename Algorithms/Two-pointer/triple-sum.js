@@ -123,5 +123,5 @@ arr = [0, 0, 1, -1, 1, -1];
 arr = [0, 0, 0]
 arr = [1, -1]
 arr = [0]
-arr = []
+arr = [];
 console.log(tripleSum(arr));
