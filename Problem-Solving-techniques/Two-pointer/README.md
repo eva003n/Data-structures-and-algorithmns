@@ -1,4 +1,12 @@
 ## Two pointer Algorithm
+Mostrly used to solve problems that involve arrays and linked list
+
+Involves two pointers often represented as indexes or references that traverse the data structure in different ways depending on the nature of the problem
+
+The pointers can be on opposite ends or one could be moving faster than the other referred to as slow and fast pointer method
+
+Optimizes time complexity by reducing it to O(n)
+
 Introduces new possibility when we add a second pointer instead of the usual single pointer to linear data structures eg we can perform comparisons
 
 With pointers at two different positions, we can compare the elements at those positions and make decisions based on the comparison:
@@ -16,7 +24,9 @@ This approach has pointers starting at opposite ends of the data structure and m
 
 ![Diagram representing inward traversal](/assets/images/inward-traversal.svg)
 
-The pointers move toward the center, adjusting their positions based on comparisons, until a certain condition is met, or they meet/cross each other. This is ideal for problems where we need to compare elements from different ends of a data structure.
+The pointers move toward the center, adjusting their positions based on comparisons, until a certain condition is met, or they meet/cross each other(where we end the loop). This is ideal for problems where we need to compare elements from different ends of a data structure.
+
+The time complexity will never exceed O(n)
 
 ##### Steps
 1. Take the first element and last element of a sorted array and sum them 
