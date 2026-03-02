@@ -6,7 +6,7 @@ function isPalindromeBruteForce(text) {
   // reverse the string
   const reversedString = text.split("").reverse().join(""); // -> time O(n) space O(n)
   // check if they match
-  console.log(reversedString);
+  // console.log(reversedString);
 
   return text === reversedString;
 }
