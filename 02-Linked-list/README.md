@@ -55,3 +55,29 @@ Efficient Deletion - Given a pointer to a node, you can delete it in O(1) time (
 - More Complex Implementation - Both prev and next must be handled carefully during insertion and deletion, which increases chances of errors (broken links, null pointer issues)
 - Slower Operations Due to Overhead - Extra pointer manipulations during insertion/deletion cause slightly more overhead compared to singly linked list.
 - Not Cache-Friendly - Like singly linked list, nodes are scattered in memory, so traversals may be slower compared to arrays due to poor locality of reference.
+### Circular linked list
+The last node points to the first node forming closed node
+#### Circular singly linked list
+We move in one direction through the list because of next pointer
+
+![Diagram representing circular signly linked list](/assets/images/circular-singly-linked-list.webp)
+
+#### Circular doubly linked list
+Here, in addition to the last node storing the address of the first node, the first node will also store the address of the last node.
+
+![Diagram representing circular doubly linked list](/assets/images/circular-doubly-linked-list.webp)
+
+##### Advantage of Circular Linked List
+- Efficient Traversal
+- No Null Pointers / References
+- Useful for Repetitive Tasks
+- Insertion at Beginning or End is O(1)
+- Uniform Traversal
+- Efficient Memory Utilization
+##### Disadvantage of Circular Linked List
+- Complex Implementation
+- Infinite Loop Risk
+- Harder to Debug
+- Deletion Complexity
+- Memory Overhead (for Doubly Circular LL)
+- Not Cache Friendly
