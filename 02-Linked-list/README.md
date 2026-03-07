@@ -38,3 +38,20 @@ Nodes are dynamically linked to form a chain like sequence
 - Extra memory required for storing pointers
 - No direct/random access (need traversal)
 - Cache unfriendly (not stored in contiguous memory)
+
+### Doubly linked list
+Allows efficient traversal in both directions bacause each node contains a pointer to the previous and next node
+Allows quick and easy insertion and deletion from list
+
+![Diagram representing a doubly linked list](/assets/images/doubly-linked-list.webp)
+
+####cAdvantages of Doubly Linked List
+- Bidirectional Traversal - You can traverse forward (using next) as well as backward (using prev).
+Efficient Deletion - Given a pointer to a node, you can delete it in O(1) time (no need to traverse from the head), since you can update both prev and next.
+- Insertion at Both Ends - Insertion at head or tail is efficient because you can update both directions easily.
+- Easy to Implement Deque / Navigation Features - Useful for undo/redo, browser history, and music playlist navigation, where both forward and backward movement is needed.
+#### Disadvantages of Doubly Linked List
+- Extra Memory Per Node - Each node requires an additional pointer (prev), making DLL more memory-consuming than singly linked list.
+- More Complex Implementation - Both prev and next must be handled carefully during insertion and deletion, which increases chances of errors (broken links, null pointer issues)
+- Slower Operations Due to Overhead - Extra pointer manipulations during insertion/deletion cause slightly more overhead compared to singly linked list.
+- Not Cache-Friendly - Like singly linked list, nodes are scattered in memory, so traversals may be slower compared to arrays due to poor locality of reference.
