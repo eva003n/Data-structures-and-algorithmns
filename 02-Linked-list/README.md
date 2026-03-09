@@ -3,7 +3,7 @@ Enable efficient insertion and deletion operations
 
 Used to implement other data structures such as queues, stack and dequeue
 
-Items are not stored at contigious memory locations
+Items are not stored at contiguous memory locations
 
 Individual items are called nodes and are lined to each other
 
@@ -40,7 +40,7 @@ Nodes are dynamically linked to form a chain like sequence
 - Cache unfriendly (not stored in contiguous memory)
 
 ### Doubly linked list
-Allows efficient traversal in both directions bacause each node contains a pointer to the previous and next node
+Allows efficient traversal in both directions because each node contains a pointer to the previous and next node
 Allows quick and easy insertion and deletion from list
 
 ![Diagram representing a doubly linked list](/assets/images/doubly-linked-list.webp)
@@ -60,7 +60,7 @@ The last node points to the first node forming closed node
 #### Circular singly linked list
 We move in one direction through the list because of next pointer
 
-![Diagram representing circular signly linked list](/assets/images/circular-singly-linked-list.webp)
+![Diagram representing circular singly linked list](/assets/images/circular-singly-linked-list.webp)
 
 #### Circular doubly linked list
 Here, in addition to the last node storing the address of the first node, the first node will also store the address of the last node.
