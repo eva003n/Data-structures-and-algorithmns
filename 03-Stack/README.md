@@ -38,3 +38,8 @@ Ca be implemented by a alinked list or a dynamic array
 ### Fixed Size Stack Vs Dynamic Size Stack
 
 ![Diagram representing Fixed Size Stack Vs Dynamic Size Stack](/assets/images/Comparison_-Fixed-Size-Stack-vs-Dynamic-Size-Stack.webp)
+
+### Stack can be implemented through
+- [Array Implementation](/03-Stack/fixed-stack.js)
+- [Linked List Implementation](/03-Stack/linked-list-stack.js)
+- [Implementation using Deque](/03-Stack/deque.js)
