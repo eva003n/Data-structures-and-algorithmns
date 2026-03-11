@@ -190,10 +190,12 @@ Data is stored sequentially in memory(one after another)
 Linear data structures are usually easy to implement but since the memory allocation might become complicated, time and space complexities increase.
 
 they include:
-- Arrays
-- Linked lists
-- Stacks
-- Queuss
+- [Arrays](/01-Arrays/README.md)
+- [Linked lists](/02-Linked-list/README.md)
+- [Stacks](/03-Stack/README.md)
+- [Queuss](/04-Queue/README.md)
+- [Hash Table](/05-Hash-Table/README.md)
+
 
 based on the data storage methods this type of data structures can be divided into sub types which include
 - Static data structures
