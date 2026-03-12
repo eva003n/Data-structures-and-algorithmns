@@ -70,3 +70,4 @@ q1.dequeue()
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
 q1.dequeue()
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+//helli from dcoder
