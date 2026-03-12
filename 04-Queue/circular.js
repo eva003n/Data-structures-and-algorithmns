@@ -62,7 +62,7 @@ class Queue {
 let q1 = new Queue()
 q1.enqueue(10)
 q1.enqueue(20)
-q1.enqueue(30)
+q1.enqueue(30);
 q1.enqueue(40)
 
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`)
