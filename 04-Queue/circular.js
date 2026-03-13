@@ -3,9 +3,11 @@ class Queue {
     // storage
     this.arr = new Array(capacity);
     // index of front element
-    this.front = 0;
+    this.front = -1;
     // current size of queue
     this.size = 0;
+    // index of rear 
+    this.rear = -1
     // maximum size of queue
     this.capacity = capacity;
   }
@@ -13,33 +15,36 @@ class Queue {
   // insert element at rear
   enqueue(element) {
     // prevent overflow
-    if (this.size === this.capacity - 1) {
+    if (this.isFull()) {
       throw new Error("Queue overflow");
     }
 
-    // insert element at rear = (front + size) % capacity ensures circular behavior
-    let rear = (this.front + this.size++) % this.capacity;
-    this.arr[rear] = element;
+    // insert element at rear = (front + 1) % capacity ensures circular behavior
+   
+    if(this.isEmpty()) this.front = 0
+    
+    this.rear = (this.front + 1) % this.capacity;
+    
+    this.arr[this.rear] = element;
   }
 
   // remove and return front element
   dequeue() {
     //prevent undeflow
-    if (this.size === 0) {
+    if (this.isEmpty()) {
       throw new Error("Queue underflow");
     }
-    let front = this.arr[this.front];
+    let value = this.arr[this.front];
     // move front forward by circular movement
-    this.front = (this.front + 1) % this.capacity;
-    // update the size
-    this.size--;
-
-    return this.arr[front];
+    if(this.front === this.rear) return this.front = thie.rear = -1
+    
+    this.front = (this.front + 1)  % this.capacity
+    return value
   }
 
   getFront() {
     //when queue is empty
-    if (this.size === 0) {
+    if (this.isEmpty()) {
       console.log("Queue is empty");
       return -1;
     }
@@ -49,13 +54,21 @@ class Queue {
 
   getRear() {
     //when queue is empty
-    if (this.size === 0) {
+    if (this.isEmpty()) {
       console.log("Queue is empty");
       return -1;
     }
 
-    let rear = (this.front + this.size - 1) % this.capacity
-    return this.arr[rear]
+    
+    return this.arr[this.rear]
+  }
+  
+  isFull(){
+      return this.front == (this.rear + 1) % this.capacity
+  }
+  
+  isEmpty() {
+      return this.front == -1
   }
 }
 
