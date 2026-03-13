@@ -8,18 +8,18 @@ class Queue {
   constructor(cap) {
     // storage
     this.arr = new Array(cap);
-    // track current size of queue
-    this.size = 0;
-
     // front pointer to keep tack of the next element added to due
-    this.front = 0;
+    this.front = 0
+    // represent rear, insertion point
+    this.size = 0
+
     // maximum size of the array
     this.capacity = cap;
   }
 
   enqueue(data) {
     //prevent queue overflow
-    if (this.size === this.cap - 1) {
+    if (this.isFull()) {
       throw new Error("Queue overflow");
     }
     // insert element at rear/back of queue(Time O(1) space O(1))
@@ -28,18 +28,21 @@ class Queue {
 
   dequeue() {
     //prevent underflow
-    if (this.size === 0) {
+    if (this.isEmpty()) {
       throw new Error("Queue underflow");
     }
 
     // remove element from front(Time O(n) space(1))
-    this.arr = shift(this.arr, --this.size);
-    return this.arr;
+    let value = this.arr[this.front]
+    this.arr = shift(this.arr);
+    this.size--
+
+    return value
   }
 
   getFront() {
     //prevent underflow
-    if (this.rear === 0) {
+    if (this.isEmpty()) {
       console.error("Queue underflow, empty queue");
       return -1
     }
@@ -48,16 +51,13 @@ class Queue {
   }
   getRear() {
     //prevent underflow
-    if (this.rear === 0) {
+    if (this.isEmpty()) {
       console.error("Queue underflow, empty queue");
       return -1
     }
     //element at front (Time O(1) space O(1))
-    return this.arr[this.front + this.size - 1];
-  }
-
-  _size() {
-    return this.size;
+    console.log(this.size)
+    return this.arr[this.size];
   }
 
   isFull() {
@@ -68,7 +68,7 @@ class Queue {
   }
 }
 
-function shift(arr, index) {
+function shift(arr) {
   //length of array
   let n = arr.length;
 //   shiting all the elements that come after first element to the left
@@ -76,7 +76,6 @@ function shift(arr, index) {
     arr[i - 1] = arr[i];
   }
   // elements deleted are replaced by 0 since this is a fixed array
-  arr[index] = 0;
   return arr;
 }
 
@@ -89,10 +88,14 @@ q1.enqueue(40);
 console.log("Dequeued: " + q1.dequeue());
 console.log("Front: " + q1.getFront());
 console.log("Rear: " + q1.getRear());
-console.log("Size: " + q1._size());
 console.log("Is queue empty: " + (q1.isEmpty() ? "Yes" : "No"));
 console.log("Is queue full: " + (q1.isFull() ? "Yes" : "No"));
+q1.enqueue(50)
+console.log(q1.arr)
 console.log("Dequeued: " + q1.dequeue());
+console.log(q1.arr)
+q1.enqueue(60)
+
 console.log("Front: " + q1.getFront());
 console.log("Rear: " + q1.getRear());
-console.log("Size: " + q1._size());
+
