@@ -18,13 +18,16 @@ class Queue {
   enqueue(element) {
     // create a node
     const newNode = new Node(element);
-
-    // link the nodes
-    if (this.front === null) {
-      this.front = newNode;
-    } else {
-      this.front.next = newNode;
+    if(this.front === null){
+        this.front = newNode
+        return this.size++
     }
+    let curr = this.front
+while(curr.next !== null){
+    curr = curr.next
+    
+}
+curr.next = newNode
     //update size
     this.size++;
   }
@@ -38,7 +41,7 @@ class Queue {
     // update size
     this.size--;
     // free memory
-    oldhead = null;
+    oldHead = null;
   }
 
   getFront() {
