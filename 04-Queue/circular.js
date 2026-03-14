@@ -6,8 +6,8 @@ class Queue {
     this.front = -1;
     // current size of queue
     this.size = 0;
-    // index of rear 
-    this.rear = -1
+    // index of rear
+    this.rear = -1;
     // maximum size of queue
     this.capacity = capacity;
   }
@@ -20,11 +20,15 @@ class Queue {
     }
 
     // insert element at rear = (front + 1) % capacity ensures circular behavior
-   
-    if(this.isEmpty()) this.front = 0
-    
-    this.rear = (this.front + 1) % this.capacity;
-    
+
+    if (this.isEmpty()) {
+      this.front = 0;
+      this.rear = 0;
+    } else {
+      this.rear = (this.front + this.size) % this.capacity;
+    }
+    this.size++;
+
     this.arr[this.rear] = element;
   }
 
@@ -36,10 +40,14 @@ class Queue {
     }
     let value = this.arr[this.front];
     // move front forward by circular movement
-    if(this.front === this.rear) return this.front = thie.rear = -1
-    
-    this.front = (this.front + 1)  % this.capacity
-    return value
+    if (this.front === this.rear) {
+      this.front = this.rear = -1;
+    } else {
+      this.front = (this.front + 1) % this.capacity;
+    }
+
+    this.size--;
+    return value;
   }
 
   getFront() {
@@ -59,27 +67,33 @@ class Queue {
       return -1;
     }
 
-    
-    return this.arr[this.rear]
+    return this.arr[this.rear];
   }
-  
-  isFull(){
-      return this.front == (this.rear + 1) % this.capacity
+
+  isFull() {
+    return this.front == (this.rear + 1) % this.capacity;
   }
-  
+
   isEmpty() {
-      return this.front == -1
+    return this.front == -1;
   }
 }
 
-let q1 = new Queue()
-q1.enqueue(10)
-q1.enqueue(20)
+let q1 = new Queue(4);
+q1.enqueue(10);
+q1.enqueue(20);
 q1.enqueue(30);
-q1.enqueue(40)
+q1.enqueue(40);
 
-console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`)
-q1.dequeue()
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
-q1.dequeue()
+q1.dequeue();
+console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+q1.dequeue();
+console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+q1.enqueue(60);
+console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+q1.enqueue(70);
+console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+q1.dequeue();
+q1.enqueue(80);
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
