@@ -45,7 +45,7 @@ Each element is assigned a priority and deletion occurs based on priority not by
 
 ### Implementation of queue
 - [Simple Array implementation of Queue](/04-Queue/simple-array.js)
-- [Efficient Array Implementation of Queue](/04-Queue/efficient-array.js)
+- [Efficient Array Implementation of Queue](/04-Queue/circular.js)
 - [Implementation of Queue using Linked List](/04-Queue/linked-list.js)
 
 ### Applications of queue
