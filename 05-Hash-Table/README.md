@@ -1,25 +1,31 @@
 ## Hash Table
 Used to insert and delete key value pairs quickly 
+Involves mapping data to a specific index in hash table using the hash function
+Hashing achieves all three operations insert, delete and search in O(i) time in average
+Hashing is mainly used to implement a set of distinct items (only keys) and dictionaries (key value pairs). 
 Operates on the hashing concept
+
+![Diagram showing representation of a hashing](/assets/images/hashing-dsa.webp)
 
 ### Hashing concept
 Process of generating a small size output from a large input
 Small output can be used as an index
+Uses mathematical formula known as hash functions
 Uses hash function to generate this transformations
 This index determines where to store this item on the hash table
 
 #### Overview 
 Supports insert, delete and search in a time complexity of O(1)
 
-used for frequency counting, quick access via a key and in dictionaries
+used for dictionaries, frequency counting, and maintaining data for quick access via a key
 
-Real world use case database indexes, cryptography and dictionaries
+Real world use case database indexes, cryptography and dictionaries, symbol table and caches
 
-### Forms of hash
+### Forms of hash table
 - Hash set - collection of unique keys
 - hash map - collection of of key value pairs with keys being unique
 
-### Situation weher hash set is not used
+### Situation where hash set is not used
 - need to maintain a sorted data along with insert, delete and search we use a BST for that
 - We nead operations like floor, ceiling, insert, delete, search we use self balancing BST
 - When keys are strings we need operations such a prefix search along with insert delete, search we use trie in this case
@@ -106,9 +112,69 @@ Cuts down collusions and average chain length
 Size expands or contracts based on the number of elements in table making the load factor becomes ideal for quick lookup and search times
 
 Hash table worst time complexity is O(n)
+### Creating hash table
+####  Hashing with Chaining Implementation
+Prevents collisions, by making each cell in hash table to point to a linked list of records that have the same hash function value
+##### Simple chaining
+Has no concept of rehashing
+Uses a fixed size array
+Leads to cllusions when load factor increases
+##### Without rehashing
+###### Time Complexity:
+- Search : O(1+(n/m))
+- Delete : O(1+(n/m))
+where n =  Total elements in hash table
+             m = Size of hash table
+- Here n/m is the Load Factor.
+- Load Factor (∝) must be as small as possible.
+- If load factor increases, then possibility of collision increases.
+- Load factor is trade of space and time .
+- Assume , uniform distribution of keys,
+- Expected chain length : O(∝)
+- Expected time to search : O( 1 + ∝ )
+- Expected time to insert/ delete :  O( 1 + ∝ )
+
+- Auxiliary Space: O(1), since no extra space has been taken.
+
+[Simple chaining with rehashing](/05-Hash-Table/Chaining/simple.js)
+##### With rehashing
+Complexity analysis of Insert:
+
+- Time Complexity: O(n), as we are checking the load factor each time and when it is greater than 0.5 we call rehashing function which takes O(n) time. 
+- Auxiliary Space: O(n)
+
+Complexity analysis of Search:
+- Time Complexity: O(n) 
+- Auxiliary Space: O(1)
+[Simple chaining with rehashing](/05-Hash-Table/Chaining/simple-rehashing.js)
+
 
 ### Application of hash table
-- Indexing and seraching large data volumes eg search engines might use a hash table to store web pages it has indexed
-- caching data in memory especially frequently accessed information for faster retrieval
-- Database indexing to enable fast access to data dased on key value pairs
+1. Data Integrity & Security
+Hashing acts as a digital seal and lock, focusing on the verification and privacy of sensitive data.
+
+- Password Storage: Stores non-reversible "fingerprints" instead of plain text, allowing secure verification while keeping passwords hidden from attackers.[reference](https://www.geeksforgeeks.org/dbms/store-password-database/)
+- File Comparison and Message Digest: Generates unique signatures to verify file integrity, allowing users to instantly detect any corruption or malicious tampering.[reference](https://www.geeksforgeeks.org/computer-networks/message-digest-in-information-security/)
+- Blockchain & Consensus: Links blocks via hashes to ensure permanent immutability, where any alteration breaks the chain and alerts the network.
+Fraud Detection & Cybersecurity: Matches data patterns against known threat databases to identify and block malicious files the moment their hashes are detected.
+#### 2. Database & Search Optimization
+This category leverages hashing to eliminate slow searches, jumping directly to the required data for high-performance computing.
+
+- Database Indexing: Enables near-instant record retrieval by using hashes as direct indices, bypassing slow sorting to speed up massive database queries.[reference](https://www.geeksforgeeks.org/dbms/indexing-in-databases-set-1/)
+- Distinct Elements & Counting Frequencies: Tracks unique items and occurrences by using hash values as keys, providing a massive speed advantage over comparison methods. [reference](https://www.geeksforgeeks.org/dsa/counting-frequencies-of-array-elements/)
+Dictionaries & Associative Arrays: Facilitates immediate access to data via high-speed key mapping, ensuring lookups remain fast regardless of dataset size.[reference](https://www.geeksforgeeks.org/cpp/associative-arrays-in-cpp/)
+Rabin-Karp Algorithm: Optimizes string-searching by hashing text segments to quickly filter out non-matches and focus only on potential pattern hits.[reference](https://www.geeksforgeeks.org/dsa/rabin-karp-algorithm-for-pattern-searching/)
+#### 3. Network & System Infrastructure
+Hashing optimizes traffic movement and resource usage to ensure minimal lag and disruption across complex systems.
+
+- Load Balancing: Uses consistent hashing to distribute traffic evenly across servers, ensuring stability and minimal data remapping during server changes.[reference](https://www.geeksforgeeks.org/system-design/load-balancing-algorithms/)
+- Bloom Filters: A memory-efficient structure that trades a tiny margin of error for extreme speed when testing membership in massive data sets.[reference](https://www.geeksforgeeks.org/python/bloom-filters-introduction-and-python-implementation/)
+- Network Routing: Hashes destination attributes to determine optimal data paths, minimizing latency and ensuring smooth transmission across global infrastructure.
+- Caching Mechanisms: Stores frequently accessed data under hash-based keys to reduce retrieval times and decrease server load by bypassing slow lookups.
+#### 4. Specialized Processing
+These applications apply hashing to complex pattern recognition and low-level system organization.
+
+- Image Processing: Employs perceptual hashing to find duplicate images by comparing structural features, identifying matches even after resizing or compression.[reference](https://www.geeksforgeeks.org/computer-graphics/digital-image-processing-basics/)
+- Symbol Tables: Maps code identifiers to memory locations during compilation, which is essential for accurate variable management and program execution.
+- Graphics & Grid Storage: Organizes graphical objects into spatial grids via hash functions to enable accelerated rendering and object management in 3D environments.
  
