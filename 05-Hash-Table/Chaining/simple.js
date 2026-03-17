@@ -53,7 +53,7 @@ class Hash {
   }
 }
 const hash = new Hash(7);
-const list = [10, 20, 30, 40, 50]
+const list = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130]
 list.forEach(element => hash.insertKey(element))
 
 console.log("____ Hash table ____")

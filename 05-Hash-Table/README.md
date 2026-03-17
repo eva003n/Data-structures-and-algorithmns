@@ -59,49 +59,132 @@ Suppose we have a set of strings {“ab”, “cd”, “efg”} and we would li
       “cd” in 7 mod 7 = 0, and
       “efg” in 18 mod 7 = 4.
       ```
-![Diagram representing mapping keys with indexes](/assets/images/Mapping-Key-with-indices-of-Array.webp)
+![Diagram representigng mapping keys with indexes](/assets/images/Mapping-Key-with-indices-of-Array.webp)
 
 ### Load factor
-Refers to how many element are kept in relation to how big the hash table is
+Refers to the number of items in hash table divided by the size of hash table
+Load factor is the parameter used to rehash the pervious hash function or to add more elements to existing hash table
 
 When load factor is high, it leads to high search times or collusion
 
+Helps determine the efficiency of the hash function whether is distributing keys uniformly
 Ideal load factor can be maintained using a good hash function and proper resizing of hash table
 
 #### Hash function
+Cocept in computer science that plays an critical role in applications such as data storage, retrieval and cryptography
+Creates a mapping from an input key to an index
+
+##### Properties of a hash function
+- Deterministic- should consistently produce the same output for the same input
+- Fized output size - should produce a fixed size output regardless of input size
+- Efficient - should produce output faster and optimized
+- Uniformity - should evenly distribute hash values across output space
+- Pre-image Resistance: It should be computationally infeasible to reverse the hash function, i.e., to find the original input given a hash value.
+- Collision Resistance: It should be difficult to find two different inputs that produce the same hash value.
+- Avalanche Effect: A small change in the input should produce a significantly different hash value.
 Evenly distributes keys to avoid collusion and improve search speed
 
+##### Applications of Hash Functions
+- Hash Tables: The most common use of hash functions in DSA is in hash tables, which provide an efficient way to store and retrieve data.
+- Data Integrity: Hash functions are used to ensure the integrity of data by generating checksums.
+- Cryptography: In cryptographic applications, hash functions are used to create secure hash algorithms like SHA-256.
+- Data Structures: Hash functions are utilized in various data structures such as Bloom filters and hash sets.
 ##### Hashing techniques
 ###### Integer universe assumptions
 Keys are assumed to be integers with the range of the universe integer assumptions
 ###### Hashing by division
-Used the remainder after division as the index
-
+Used the remainder after division with a prime number as the index(hash value)
+- Advantahes
+  - Simple to implement
+  - Works well when the denominator is a prime number
+- Disadvantages
+  - Poor distribution when the denominator is not choosen wisely
 ###### Hashing by multiplication
 Multiplies key with a constant 1 or 0 and uses the fraction portion of this outcome to multiples it by the table size and the output is used as index
 
+- Advantages
+  - Less sensitive to the choice of the prime number
+- Disadvantages
+- Complex to implement
+###### Mid square method
+In the mid-square method, the key is squared, and the middle digits of the result are taken as the hash value.
+
+Steps:
+
+Square the key.
+Extract the middle digits of the squared value.
+- Advantages:
+  - Produces a good distribution of hash values.
+- Disadvantages:
+   - May require more computational effort.
+###### Folding method
+Dividing the key into equal parts , summing them and the modulus of this sum with respect to table size
+- Advantages:
+  - Simple and easy to implement.
+- Disadvantages:
+  - Depends on the choice of partitioning scheme.
+
+###### Cryptographic Hash Functions
+Designed to be secure and used in cryptography
+Examples include MD5, SHA-1, and SHA-256.
+
+- Characteristics
+  - Pre image resistant
+  - Second pre image resistant
+  - Collusion resistant
+- Advantages
+  - High security
+- Disadvantages
+  - Computationally intensive
+
+###### Universal hashing
+Universal hashing uses a family of hash functions to minimize the chance of collision for any given set of inputs.
+```hs
+h(k)=((a⋅k+b)modp)modm
+Where a and b are randomly chosen constants, p is a prime number greater than m, and k is the key.
+```
+- Advantages:
+  - Reduces the probability of collisions.
+- Disadvantages:
+  - Requires more computation and storage.
+
+###### Perfect hashing
+Perfect hashing aims to create a collision-free hash function for a static set of keys. It guarantees that no two keys will hash to the same value.
+
+- Types:
+  - Minimal Perfect Hashing: Ensures that the range of the hash function is equal to the number of keys.
+  - Non-minimal Perfect Hashing: The range may be larger than the number of keys.
+- Advantages:
+   - No collisions.
+- Disadvantages:
+  - Complex to construct.
 ##### Criteria for choosing hash functions
 - Minimizes collusion
 - Computationaly efficient to enable speedy hashing an key retrieval
 - Difficult to deduce key from hash thus attempt to guess are less likely to succeed
 - Flexible -adapts to the changes of data being hashed  eg performs properly as keys being hashed change in size and format
 
+Hash functions are very important tools that help store and find data quickly. Knowing the different types of hash functions and how to use them correctly is key to making software work better and more securely. By choosing the right hash function for the job, developers can greatly improve the efficiency and reliability of their systems.
 ### Collusion in hashing
-Two or more keys map to the same array index
+Two or more keys map to the same hash value(index)
 
-Include:
+![Diagram showing collision in hashing](/assets/images/collision-in-hashing.webp)
+
+#### Collision resolution techniques
 #### Open addressing
-Looking for the following empty space in table. If first slot is occupies the hash function is applied to subsequent slots until one is left empty
+Looking for the following empty space in table. If first slot is occupied the hash function is applied to subsequent slots until one is left empty
 ##### Done using
 - Double hashing
 - Linear probing
 - Quadratic probing 
 
 #### Separate chaining
-Linked list of objects that hash to a slot in the hash table
+Each cell of a hash table points to a linked list of  record that have the same hash function value
+Chaining is simple but requires additional memory outside the table
+
 two keys are included in linked list if they map to same slot
 
-Simple and manages several collusions
+Simple and manages several collisions
 
 #### Robin hood hashing
 To reduce the length of the chains  collusions are addressed by switching off keys
@@ -118,8 +201,7 @@ Prevents collisions, by making each cell in hash table to point to a linked list
 ##### Simple chaining
 Has no concept of rehashing
 Uses a fixed size array
-Leads to cllusions when load factor increases
-##### Without rehashing
+Leads to collisions when load factor increases
 ###### Time Complexity:
 - Search : O(1+(n/m))
 - Delete : O(1+(n/m))
@@ -137,7 +219,7 @@ where n =  Total elements in hash table
 - Auxiliary Space: O(1), since no extra space has been taken.
 
 [Simple chaining with rehashing](/05-Hash-Table/Chaining/simple.js)
-##### With rehashing
+##### Chaining With rehashing
 Complexity analysis of Insert:
 
 - Time Complexity: O(n), as we are checking the load factor each time and when it is greater than 0.5 we call rehashing function which takes O(n) time. 
@@ -146,7 +228,7 @@ Complexity analysis of Insert:
 Complexity analysis of Search:
 - Time Complexity: O(n) 
 - Auxiliary Space: O(1)
-[Simple chaining with rehashing](/05-Hash-Table/Chaining/simple-rehashing.js)
+[Simple chaining with rehashing](/05-Hash-Table/Chaining/chaining-rehashing.js)
 
 
 ### Application of hash table
