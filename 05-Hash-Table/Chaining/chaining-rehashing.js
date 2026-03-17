@@ -14,7 +14,7 @@ class Hash {
   // insert key
   insertKey(key,) {
     // rehash if needed
-    while(this.getLoadfactor > 0.5) {
+    while(this.getLoadfactor() > 0.75) {
      this.rehash()
     }
     // map key to index
@@ -63,7 +63,7 @@ class Hash {
 
   rehash() {
     const oldTable = this.#table;
-    //double the size of new table
+    //double the size of old table
     this.#bucketsCount *= 2;
     this.#table = Array.from({ length: this.#bucketsCount }).map(() => []);
 
@@ -85,7 +85,9 @@ class Hash {
 
 const hash = new Hash(4);
 
-const list = [10, 20, 30, 40, 50];
+// const list = [10, 20, 30, 40, 50];
+const list = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130];
+
 list.forEach((element) => hash.insertKey(element));
 
 console.log("____ Hash table ____");
