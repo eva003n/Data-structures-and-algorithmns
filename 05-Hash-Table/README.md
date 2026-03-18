@@ -179,18 +179,65 @@ Looking for the following empty space in table. If first slot is occupied the ha
 - Quadratic probing 
 
 #### Separate chaining
+A linked list or dynamic array is used
+When multiple keys are hashed to the same slot they are inserted into a chain which is a singly linked list
+
 Each cell of a hash table points to a linked list of  record that have the same hash function value
 Chaining is simple but requires additional memory outside the table
 
-two keys are included in linked list if they map to same slot
+Two keys are included in linked list if they map to same slot
 
 Simple and manages several collisions
+##### Advantages
+- Simple to implement 
+- Hash table never fills up, we can always add more elements in the chain
+- Less sensitive to hash function or load factor
+- Mostly used when its unknown how many or how frequest keys are going to be inserted or deleted
+##### Disadvantages
+- Uses extra space for links
+- Wastage of space since the hash table never gets filled
+- When chain becomes long the search time becomes O(n) in worst case
+- Cache performance not good since keys are stored in a linked list but open addressing solves this problem since evrything is stored in the same hash table
+##### Performance of chaining
+Performance of hashing can be evaluated under the assumption that each key is equally likely to be hashed to any slot of the table (simple uniform hashing).  
+```hash
+m = Number of slots in hash table
+n = Number of keys to be inserted in hash table
 
+Load factor α = n/m
+Expected time to search = O(1 + α)
+Expected time to delete = O(1 + α)
+
+Time to insert = O(1)
+Time complexity of search insert and delete is O(1) if  α is O(1)
+```
+##### Data Structures For Storing Chains: 
+Below are different options to create chains.
+
+The advantage of linked list implementation is insert is O(1) in the worst case.
+The advantage of array is cache friendliness, but the insert operation can be O(1) in cases when we have to resize the array.
+The advantage of Self Balancing BST is the worst case is bounded by O(Log (len)) for all operations
+###### 1. Linked lists
+Search: O(len) where len = length of chain
+Delete: O(len)
+Insert: O(1)
+Not cache friendly
+###### 2. Dynamic Sized Arrays ( Vectors in C++, ArrayList in Java, list in Python)
+Search: O(len) where len = length of chain
+Delete: O(len)
+Insert: O(1)
+Cache friendly
+###### 3. Self Balancing BST ( AVL Trees, Red-Black Trees)
+Search: O(log(len)) where len = length of chain
+Delete: O(log(len))
+Insert: O(log(len))
+Not cache friendly
+Java 8 onward versions use this for HashMap
 #### Robin hood hashing
 To reduce the length of the chains  collusions are addressed by switching off keys
 Compares the distance btw the slot  and the occupies slot of the two keys, if a new key hashes to an occupied the existing key gets swapped out with new one if ts closer to the ideal slot
 Brings existing slot closer to ideal slot
-Cuts down collusions and average chain length
+Cuts down collisions and average chain length
 
 Size expands or contracts based on the number of elements in table making the load factor becomes ideal for quick lookup and search times
 
