@@ -173,10 +173,26 @@ Two or more keys map to the same hash value(index)
 #### Collision resolution techniques
 #### Open addressing
 Looking for the following empty space in table. If first slot is occupied the hash function is applied to subsequent slots until one is left empty
+All the elements are stored in the hash table so the size of the hash table will be equal to or greater than the total no of keys
+Also known as closed hashing
+
+
+- Insert(k): Keep probing until an empty slot is found. Once an empty slot is found, insert k. 
+- Search(k): Keep probing until the slot's key doesn't become equal to k or an empty slot is reached. 
+- Delete(k): Delete operation is interesting. If we simply delete a key, then the search may fail. So slots of deleted keys are marked specially as "deleted". 
+- The insert can insert an item in a deleted slot, but the search doesn't stop at a deleted slot. 
 ##### Done using
 - Double hashing
 - Linear probing
 - Quadratic probing 
+
+##### Linear probing
+Involves searching sequentially starting from the original location of the hash table. If a slot is qccupied look for the next location 
+
+The function used for rehashing is as follows
+```
+rehash(key) = (n + 1) % tablesize
+```
 
 #### Separate chaining
 A linked list or dynamic array is used
