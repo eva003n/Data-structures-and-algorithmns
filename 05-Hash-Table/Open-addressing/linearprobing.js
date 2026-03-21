@@ -19,14 +19,13 @@ class HashTable {
     let index = this.getHash(key);
     const temp = new HashNode(key, value);
     let startIndex = index;
-let i = 1
     // when slot is occupied, not deleted and does not have the same key continuously probe
     while (
       this.#table[index] !== undefined &&
       this.#table[index] !== DELETED &&
       this.#table[index].key !== key
     ) {
-      index = (index + i) % this.#bucketsCount;
+      index = (index + 1) % this.#bucketsCount;
       i++;
       // prevent infinite loop
       if (index === startIndex) break;
