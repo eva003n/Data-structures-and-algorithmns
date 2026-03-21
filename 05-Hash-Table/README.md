@@ -193,7 +193,29 @@ The function used for rehashing is as follows
 ```
 rehash(key) = (n + 1) % tablesize
 ```
+The algorithm simply looks for the next available slot in the hash table and places the collided key there. If that slot is also occupied, the algorithm continues searching for the next available slot until an empty slot is found. This process is repeated until all collided keys have been stored. Linear probing has the best cache performance but suffers from clustering. One more advantage of Linear probing is easy to compute. 
 
+##### Quadratic probing
+The algorithm searches for slots in a more spaced-out manner. When a collision occurs, the algorithm looks for the next slot using an equation that involves the original hash value and a quadratic function. If that slot is also occupied, the algorithm increments the value of the quadratic function and tries again. This process is repeated until an empty slot is found. Quadratic probing lies between the two in terms of cache performance and clustering. 
+
+##### Double probing(Double hashing)
+The algorithm uses a second hash function to determine the next slot to check when a collision occurs. The algorithm calculates a hash value using the original hash function, then uses the second hash function to calculate an offset. The algorithm then checks the slot that is the sum of the original hash value and the offset. If that slot is occupied, the algorithm increments the offset and tries again. This process is repeated until an empty slot is found.  Double hashing has poor cache performance but no clustering. Double hashing requires more computation time as two hash functions need to be computed. 
+
+The choice of collision handling technique can have a significant impact on the performance of a hash table. Linear probing is simple and fast, but it can lead to clustering (i.e., a situation where keys are stored in long contiguous runs) and can degrade performance. Quadratic probing is more spaced out, but it can also lead to clustering and can result in a situation where some slots are never checked. Double hashing is more complex, but it can lead to more even distribution of keys and can provide better performance in some cases.
+
+##### Performance of Open Addressing
+Like Chaining, the performance of hashing can be evaluated under the assumption that each key is equally likely to be hashed to any slot of the table (simple uniform hashing) 
+```bash
+m = Number of slots in the hash table
+
+n = Number of keys to be inserted in the hash table
+
+ Load factor α = n/m  ( < 1 )
+
+Expected time to search/insert/delete < 1/(1 - α) 
+
+So Search, Insert and Delete take (1/(1 - α)) time
+```
 #### Separate chaining
 A linked list or dynamic array is used
 When multiple keys are hashed to the same slot they are inserted into a chain which is a singly linked list
