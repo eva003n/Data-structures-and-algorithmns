@@ -26,7 +26,6 @@ class HashTable {
       this.#table[index].key !== key
     ) {
       index = (index + 1) % this.#bucketsCount;
-      i++;
       // prevent infinite loop
       if (index === startIndex) break;
     }
