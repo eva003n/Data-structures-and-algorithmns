@@ -195,13 +195,19 @@ rehash(key) = (n + 1) % tablesize
 ```
 The algorithm simply looks for the next available slot in the hash table and places the collided key there. If that slot is also occupied, the algorithm continues searching for the next available slot until an empty slot is found. This process is repeated until all collided keys have been stored. Linear probing has the best cache performance but suffers from clustering. One more advantage of Linear probing is easy to compute. 
 
+- [Linear probing implementation](/05-Hash-Table/Open-addressing/linearprobing.js)
+
 ##### Quadratic probing
 The algorithm searches for slots in a more spaced-out manner. When a collision occurs, the algorithm looks for the next slot using an equation that involves the original hash value and a quadratic function. If that slot is also occupied, the algorithm increments the value of the quadratic function and tries again. This process is repeated until an empty slot is found. Quadratic probing lies between the two in terms of cache performance and clustering. 
+
+- [Quadratic probing implementation](/05-Hash-Table/Open-addressing/quadratic.js)
 
 ##### Double probing(Double hashing)
 The algorithm uses a second hash function to determine the next slot to check when a collision occurs. The algorithm calculates a hash value using the original hash function, then uses the second hash function to calculate an offset. The algorithm then checks the slot that is the sum of the original hash value and the offset. If that slot is occupied, the algorithm increments the offset and tries again. This process is repeated until an empty slot is found.  Double hashing has poor cache performance but no clustering. Double hashing requires more computation time as two hash functions need to be computed. 
 
 The choice of collision handling technique can have a significant impact on the performance of a hash table. Linear probing is simple and fast, but it can lead to clustering (i.e., a situation where keys are stored in long contiguous runs) and can degrade performance. Quadratic probing is more spaced out, but it can also lead to clustering and can result in a situation where some slots are never checked. Double hashing is more complex, but it can lead to more even distribution of keys and can provide better performance in some cases.
+
+- [Double probing implementation](/05-Hash-Table/Open-addressing/doubleprobing.js)
 
 ##### Performance of Open Addressing
 Like Chaining, the performance of hashing can be evaluated under the assumption that each key is equally likely to be hashed to any slot of the table (simple uniform hashing) 
@@ -226,6 +232,41 @@ Chaining is simple but requires additional memory outside the table
 Two keys are included in linked list if they map to same slot
 
 Simple and manages several collisions
+
+####  Hashing with Chaining Implementation
+Prevents collisions, by making each cell in hash table to point to a linked list of records that have the same hash function value
+##### Simple chaining
+Has no concept of rehashing
+Uses a fixed size array
+Leads to collisions when load factor increases
+###### Time Complexity:
+- Search : O(1+(n/m))
+- Delete : O(1+(n/m))
+where n =  Total elements in hash table
+             m = Size of hash table
+- Here n/m is the Load Factor.
+- Load Factor (∝) must be as small as possible.
+- If load factor increases, then possibility of collision increases.
+- Load factor is trade of space and time .
+- Assume , uniform distribution of keys,
+- Expected chain length : O(∝)
+- Expected time to search : O( 1 + ∝ )
+- Expected time to insert/ delete :  O( 1 + ∝ )
+
+- Auxiliary Space: O(1), since no extra space has been taken.
+
+[Simple chaining with rehashing](/05-Hash-Table/Chaining/simple.js)
+##### Chaining With rehashing
+Complexity analysis of Insert:
+
+- Time Complexity: O(n), as we are checking the load factor each time and when it is greater than 0.5 we call rehashing function which takes O(n) time. 
+- Auxiliary Space: O(n)
+
+Complexity analysis of Search:
+- Time Complexity: O(n) 
+- Auxiliary Space: O(1)
+[Simple chaining with rehashing](/05-Hash-Table/Chaining/chaining-rehashing.js)
+
 ##### Advantages
 - Simple to implement 
 - Hash table never fills up, we can always add more elements in the chain
@@ -281,39 +322,6 @@ Size expands or contracts based on the number of elements in table making the lo
 
 Hash table worst time complexity is O(n)
 ### Creating hash table
-####  Hashing with Chaining Implementation
-Prevents collisions, by making each cell in hash table to point to a linked list of records that have the same hash function value
-##### Simple chaining
-Has no concept of rehashing
-Uses a fixed size array
-Leads to collisions when load factor increases
-###### Time Complexity:
-- Search : O(1+(n/m))
-- Delete : O(1+(n/m))
-where n =  Total elements in hash table
-             m = Size of hash table
-- Here n/m is the Load Factor.
-- Load Factor (∝) must be as small as possible.
-- If load factor increases, then possibility of collision increases.
-- Load factor is trade of space and time .
-- Assume , uniform distribution of keys,
-- Expected chain length : O(∝)
-- Expected time to search : O( 1 + ∝ )
-- Expected time to insert/ delete :  O( 1 + ∝ )
-
-- Auxiliary Space: O(1), since no extra space has been taken.
-
-[Simple chaining with rehashing](/05-Hash-Table/Chaining/simple.js)
-##### Chaining With rehashing
-Complexity analysis of Insert:
-
-- Time Complexity: O(n), as we are checking the load factor each time and when it is greater than 0.5 we call rehashing function which takes O(n) time. 
-- Auxiliary Space: O(n)
-
-Complexity analysis of Search:
-- Time Complexity: O(n) 
-- Auxiliary Space: O(1)
-[Simple chaining with rehashing](/05-Hash-Table/Chaining/chaining-rehashing.js)
 
 
 ### Application of hash table
