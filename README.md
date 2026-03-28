@@ -197,7 +197,7 @@ they include:
 - [Hash Table](/05-Hash-Table/README.md)
 
 
-based on the data storage methods this type of data structures can be divided into sub types which include
+Based on the data storage methods this type of data structures can be divided into sub types which include
 - Static data structures
 - Dynamic dat structures
 ##### Static linear data structure
@@ -206,9 +206,8 @@ The memory allocation is not scalable
 This servers a a drawback since allocating more memory than is required my lead to memory leaks and wastage
 
 A good example for this is an array
-###### Array Data structures
-- [Arrays]()
-##### Dynamic dat structures 
+
+##### Dynamic data structures 
 The memory allocation is done dynamically when required
 
 These data structures are efficient considering the space complexity of the program.
@@ -219,14 +218,22 @@ Data is stored in a hierachy thus data can be found in multiple levels which is 
 
 ![Diagram showing strucutres of a non linear data structure](/assets/images/non_linear_data_structures.jpg)
 
-These data strucures were designed to solve the problem of linear data structures in terms of space complexity. Linear data structures consume a memory block of space sinces elements are storesd sequentially which means if they dont use the entire assigned memory they waste the rest
+These data strucures were designed to solve the problem of linear data structures in terms of space complexity. Linear data structures consume a memory block of space sinces elements are storesd sequentially which means if they don't use the entire assigned memory they waste the rest
 
-They decrese space complexity and use memory optimally
+They decrease space complexity and use memory optimally
 
 They include
-- Graphs
-- Trees
-- Tries
-- Maps
+- [Graphs]()
+- [Trees]()
+- [Tries]()
+- [Maps]()
 
-
+### Algorithms
+#### Algorithmic complexities
+##### Common runtimes
+- Constant - the running time remains the same regardless of increase in input size, denoted by O(1) eg accessing an element in the array
+- Logarithimic - involves halfing the input size at each step thus grow in terms of input size will be slow, denoted by O(log n)
+- Linear - the running time increases linearly as the input size increases, denoted by O(n)
+- Polynormial - running time increases proportionally to the input size raised to a constant power 'k', denoted by O(n ^ k)
+- Exponential - growth of input size leads to exponential growth of the no of tasks required to complete a task, with every addition of an element to the input set the time will be double
+- Factorial - the time taken increases in a factorial manner as the input size increases, denoted by O(n!), eg for any input size of n it does n * (n - 1) *  (n - 2)
