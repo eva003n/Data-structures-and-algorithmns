@@ -228,6 +228,7 @@ They include
 - [Tries]()
 - [Maps]()
 
+<<<<<<< Updated upstream
 ### Algorithms
 #### Algorithmic complexities
 ##### Common runtimes
@@ -237,3 +238,7 @@ They include
 - Polynormial - running time increases proportionally to the input size raised to a constant power 'k', denoted by O(n ^ k)
 - Exponential - growth of input size leads to exponential growth of the no of tasks required to complete a task, with every addition of an element to the input set the time will be double
 - Factorial - the time taken increases in a factorial manner as the input size increases, denoted by O(n!), eg for any input size of n it does n * (n - 1) *  (n - 2)
+=======
+### Online resources
+-[Algorithm Visualizer](https://www.hackerearth.com/practice/algorithms)
+>>>>>>> Stashed changes
