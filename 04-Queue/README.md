@@ -3,7 +3,7 @@ Used to store and manage data in a specific order
 
 Uses the FIFO (first in first out) principle to perform operations
 
-Used as a buffer in computer systems where we have speed mismatch btw two devices that communicate with each other
+Used as a buffer in computer systems where we have speed mismatch btw two devices that communicate with each other eg CPU and keyboard or two devices in a network
 
 Used in operating system algorithms like CPU scheduling, memory management, and many standard algorithms like Breadth First Search of Graph, Level Order Traversal of a Tree.
 
@@ -25,7 +25,7 @@ The difference between stack and queue is in removing an element. In a stack we 
 ![Diagram representing queue types](/assets/images/Types-of-Queue.webp)
 
 #### Simple queue
-Uses the FIFO principle thus insertion happens only as the rear(back) and deletion only happens at the front
+Uses the FIFO principle thus insertion happens only at the rear(back) and deletion only happens at the front
 Can be implemented using linked list or circular array
 
 When an array is used, we often prefer a circular queue, which is mainly an efficient array implementation of a simple queue. It efficiently utilizes memory by reusing the empty spaces left after deletion, avoiding wastage that occurs in a normal linear array implementation..
