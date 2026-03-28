@@ -1,14 +1,8 @@
 {
+  "version": "2.0.0",
   "configurations": [
     {
-      "type": "java",
-      "name": "Main",
-      "request": "launch",
-      "mainClass": "Main",
-      "projectName": "DSA Algorithmns and Data structures_d7113e03"
-    },
-    {
-      "name": "C/C++: gcc.exe build and debug active file",
+      "name": "C: gcc build and debug active file",
       "type": "cppdbg",
       "request": "launch",
       "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
@@ -31,8 +25,12 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "C/C++: gcc.exe build active file"
+      "logging": {
+        "engineLogging": true,
+        "trace": true,
+        "traceResponse": true
+      },
+      "preLaunchTask": "C: gcc build active file"
     }
-  ],
-  "version": "2.0.0"
+  ]
 }
