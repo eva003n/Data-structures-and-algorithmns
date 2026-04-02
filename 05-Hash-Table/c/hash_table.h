@@ -9,7 +9,7 @@ typedef struct {
     // size of hash table
     int size;
     int capacity; // max size
-    ht_item* items; // flexible member
+    ht_item* items; // flexible member(key value pair)
 
 } ht_hash_table;
 
