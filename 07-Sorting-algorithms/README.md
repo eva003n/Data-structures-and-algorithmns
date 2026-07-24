@@ -1,8 +1,21 @@
-## Sorting algorithms
+# Sorting algorithms
 
 Involves rearranging the elements of an array or list by applying a comparison operator on the elements
 
-For sorting a numerical or lexicographical order is commonly used
+The comparison operator decides the new order of elements in the respective data structure
+
+For sorting a numerical or lexicographical order is commonly used sequence type
+
+Sorting algorithms include
+- Quick sort
+- Bubble sort
+- Merge sort
+- Insertion sort
+- Selection sort
+- Heap sort
+- Radix sort
+- Bucket sort
+- 
 
 ### Bubble sort
 
@@ -22,8 +35,12 @@ Involves traversing the list of elements from left to right, this each pass we s
 4. When done with a pass the last element to be processed is in its final position
 
 ### Merge sort
+- Uses the divide and conquer paradigm
+- Invented by John von Neumann in 1945
+- Works by dividing an unsorted list into n partition each containing one element(one element is considered sorted) then repeatedly merging the partitions to produce a new sorted list until there is only one sorted list remaining, the resulting list is fully sorted
+- Dividing the list is done recursively until it hits the base of the list with one item
+- Has a time complexity of O(n log n) for all cases (best, average and worst) which makes it efficient for large data sets
+- A list with one item in it is by definition considered sorted(because their is literally no other element to compare it to)
 
-Uses the divide and conquer paradigm
-Works by dividing an unsorted list into n partition each containing one element(one element is considered sorted) then repeatedly merging the partitions to produce a new sorted list until there is only one sorted list remaining, the resulting list is fully sorted
-Dividing the list is done recursively until it hits the base of the list with one item
-Has a time complexity of O(n log n) for all cases (best, average and worst) which makes it efficient for large data sets
+## Resources
+- [Merge sort](https://medium.com/basecs/making-sense-of-merge-sort-part-1-49649a143478)
