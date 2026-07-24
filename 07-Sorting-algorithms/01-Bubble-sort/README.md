@@ -1,0 +1,11 @@
+## Bubble sort(Sinking sort)
+- Simplest sorting algorithm
+- Steps through the input list element by element comparing the current element with the previous one then swaping their values when needed
+- Repeated until no swaps have to be performed during a pass meaning the list is sorted
+- Bubble sort is the name due to how larger elements bubble to the top of the list
+- Worst sorting algorithm, only for education purposes
+- Programming languages use other sorting algorithms like quick sort, merge sort and tim sort
+- Has a worst and average time complexity of O(n<sup>2</sup>)
+- Other sorting algorithms have a complexity of O(n log n) which is far better
+- Bubble sort out performs other algorithms when the list is mostly sorted with a complexity of O(n)
+- The distance and direction elements must move during sort determine bubble sort's performance, because elements move in different directions at different speeds
