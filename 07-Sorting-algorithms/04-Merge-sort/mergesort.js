@@ -6,7 +6,7 @@ function mergeSort(list) {
     return;
   }
 
-  /* __________ Divide ___________ */
+  /* __________ Divide(unsorted list) ___________ */
   // split list into halves when elements are greater than one
   const midPoint = Math.floor(size / 2);
   const leftList = list.slice(0, midPoint);
