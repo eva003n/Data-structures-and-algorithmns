@@ -7,6 +7,17 @@
 ### Pseudocode
 ```text
 procedure selectionSort(A: list of unsorted items)  
-    repeat
-        
+    n := length(A)
+    for i = 0 to n - 2
+        minimumId := i
+        temp := A[i]
+        for j := i + 1 to n
+            if(A[j] < A[minimumId]) 
+                minimumId := j
+            end if    
+        end for        
+    swap A[i] and A[minimumId]
+    end for
+end procedure
+
 ```
