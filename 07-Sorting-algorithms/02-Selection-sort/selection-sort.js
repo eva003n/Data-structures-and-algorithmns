@@ -1,16 +1,23 @@
 function selectionSort(arr) {
   const n = arr.length;
-  for (let i = 0; i < n - 1; i++) {
+  // [9, ... n-1] represents the sorted list
+  for (let i = 0; i < n - 2; i++) {
     let temp = arr[i];
+    // assume the first element is sorted(even if its not)
+    let minimumId = i;
+
+    /* _______ Unsorted list [1, ...n - 1] _________ */
     for (let j = i + 1; j < n; j++) {
-      // compare to find the smallest element
-      if (arr[i] < arr[j]) {
-        temp = arr[j];
+      // select for the smallest element
+      if (arr[j] < arr[minimumId]) {
+        minimumId = j;
       }
     }
-    arr[i] = temp;
+    // swap the values
+    arr[i] = arr[minimumId];
+    arr[minimumId] = temp;
   }
-  return arr
+  return arr;
 }
 
 let arr = [
