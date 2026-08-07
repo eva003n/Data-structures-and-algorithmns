@@ -9,19 +9,26 @@
 - Each iteration removes the first remaining entry in the input list and inserts it to the correct position in the output list(fully sorted) thus extending it
 - Performed from left to right
 
+### Real world scenario
+- Insertion sort works the way people sort a hand of playing cards
+- We start with an empty left hand and a pile of cards face down on the table 
+- We pick a card from the table and place it in the correct position on the left hand
+- Yo find the correct position to place a card on the left hand we compare it with existing cards of the left hand
+- Cards on the left hand are always sorted and these cards were at the top of the cards pile on the table
+
+
 
 ### Pseudocode(Iterative)
 ```text
-i := 1
-while i < length(A)
-j := i
-x := A[i]
-while j > 0 and A[j - 1] > x
-    swap A[j] and A[j - 1]
-    j := j - 1
-end while
-A[j] = x
-1 : i + 1
+INSERTIONSORT(A)
+
+for i < A.length
+    key = A[i]
+    while j > 0 and A[j - 1] > key
+        A[j] = A[j - 1]
+        j = j - 1
+    A[j] = key
+
 ```
 The outer loop runs over all the elements dxcept the first which is considered to be sorted
 
