@@ -9,7 +9,8 @@ class Queue {
     this.arr = new Array(cap);
     // front pointer to keep tack of the next element added to due
     this.front = 0;
-    // represent rear, insertion point
+    this.rear = 0;
+    // size of the queue
     this.size = 0;
 
     // maximum size of the array
@@ -23,8 +24,9 @@ class Queue {
     }
 
     // insert element at rear/back of queue(Time O(1) space O(1))
-    this.arr[this.size++] = data;
-    return data
+    this.arr[this.rear++] = data;
+    this.size++;
+    return data;
   }
 
   dequeue() {
@@ -37,10 +39,11 @@ class Queue {
     let value = this.arr[this.front];
     //length of array
     //   shiting all the elements that come after first element to the left
-    for (let i = 1; i < this.capacity; i++) {
+    let i = 1;
+    for (i; i < this.capacity; i++) {
       this.arr[i - 1] = this.arr[i];
     }
-    this.size--;
+    this.rear--;
     return value;
   }
 
@@ -59,39 +62,36 @@ class Queue {
       console.error("Queue underflow, empty queue");
       return -1;
     }
-    //element at front (Time O(1) space O(1))
-    let rear = this.size - 1
+    //element at rear (Time O(1) space O(1))
+    let rear = this.rear - 1;
     return this.arr[rear];
   }
 
   isFull() {
-    return this.size === this.capacity ;
+    return this.size === this.capacity;
   }
   isEmpty() {
     return this.size === 0;
   }
 }
 
-const q1 = new Queue(4);
-q1.enqueue(10);
-q1.enqueue(20);
-q1.enqueue(30);
-q1.enqueue(40);
+const q1 = new Queue(5);
+const arr = [10, 20, 30, 40, 50];
 
-console.log("Dequeued: " + q1.dequeue());
-console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
-console.log("Is queue empty: " + (q1.isEmpty() ? "Yes" : "No"));
-console.log("Is queue full: " + (q1.isFull() ? "Yes" : "No"));
-console.log("Enqueued: " + q1.enqueue(50));
+arr.forEach((element, index, array) => {
+  q1.enqueue(element);
+});
 
+console.log(q1.arr);
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
 console.log("Dequeued: " + q1.dequeue());
-console.log("Enqueued: " + q1.enqueue(60));
-
-
-console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
 console.log("Dequeued: " + q1.dequeue());
-console.log("Enqueued: " + q1.enqueue(70));
-console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+console.log("Dequeued: " + q1.dequeue());
+console.log("Dequeued: " + q1.dequeue());
+console.log("Dequeued: " + q1.dequeue());
+console.log(q1.arr);
 
 
+q1.enqueue(90);
+
+// console.log("Is queue empty: " + (q1.isEmpty() ? "Yes" : "No"));

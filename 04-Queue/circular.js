@@ -86,14 +86,17 @@ q1.enqueue(30);
 q1.enqueue(40);
 
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
-q1.dequeue();
+console.log("Dequeued: ", q1.dequeue());
+console.log("Dequeued: ", q1.dequeue());
+console.log("Dequeued: ", q1.dequeue());
+
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
-q1.dequeue();
+
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
 q1.enqueue(60);
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
 q1.enqueue(70);
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
-q1.dequeue();
+console.log("Dequeued: ", q1.dequeue());
 q1.enqueue(80);
 console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);

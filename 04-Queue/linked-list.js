@@ -1,3 +1,4 @@
+
 // this is the storage for the queue
 class Node {
   constructor(data) {
@@ -9,27 +10,27 @@ class Node {
 class Queue {
   constructor() {
     // pointer to tail of linked list
-    this.rear = null;
+    this.tail = null;
     // head of linked list
-    this.front = null;
+    this.head = null;
 
     this.size = 0
   }
 
   // Time O(1) Space O(1)
-  // insert at rear
+  // insert at tail
   enqueue(element) {
     // create a node
     const newNode = new Node(element);
-    // when queue is empty both front and rear point to new node
-    if(this.front == null && this.rear == null){
-        this.front = newNode
-        this.rear = newNode
+    // when queue is empty both head and tail point to new node
+    if(this.head == null && this.tail == null){
+        this.head = newNode
+        this.tail = newNode
     }else {
-      // current rear's next points to new node
-      this.rear.next = newNode
-      //update rear to point to new node
-      this.rear = newNode
+      // current tail's next points to new node
+      this.tail.next = newNode
+      //update tail to point to new node
+      this.tail = newNode
     }
     // update size
     this.size++
@@ -40,14 +41,14 @@ class Queue {
   dequeue() {
     // update the current head
 
-    let oldHead = this.front;
+    let oldHead = this.head;
     let value = oldHead.data
     // update the head to point to next node in list
-    this.front = oldHead.next;
+    this.head = oldHead.next;
 
     //when one element is left
-    if(this.front === null) {
-      this.rear = null
+    if(this.head === null) {
+      this.tail = null
     }
     // free memory for the current head
     oldHead = null;
@@ -56,26 +57,26 @@ class Queue {
     return value
   }
 
-  getFront() {
+  gethead() {
     if (this.isEmpty()) {
       console.log("Queue is empty");
       return -1;
     }
 
-    return this.front.data;
+    return this.head.data;
   }
 
-  getRear() {
+  gettail() {
     if(this.isEmpty()) {
       console.log("Queue is empty")
       return -1
     }
 
-    return this.rear.data;
+    return this.tail.data;
   }
 
   isEmpty() {
-    return this.front === null;
+    return this.head === null;
   }
   
   _size () {
@@ -90,13 +91,13 @@ q1.enqueue(20);
 q1.enqueue(30);
 q1.enqueue(40);
 
-console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+console.log(`head: ${q1.gethead()}`, `tail: ${q1.gettail()}`);
 console.log("Dequeued: ", q1.dequeue());
-console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+console.log(`head: ${q1.gethead()}`, `tail: ${q1.gettail()}`);
 console.log("Dequeued: ", q1.dequeue());
-console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+console.log(`head: ${q1.gethead()}`, `tail: ${q1.gettail()}`);
 console.log("Enqueued", q1.enqueue(50));
-console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+console.log(`head: ${q1.gethead()}`, `tail: ${q1.gettail()}`);
 console.log("Enqueued", q1.enqueue(60));
-console.log(`Front: ${q1.getFront()}`, `Rear: ${q1.getRear()}`);
+console.log(`head: ${q1.gethead()}`, `tail: ${q1.gettail()}`);
 
