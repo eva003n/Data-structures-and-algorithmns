@@ -1,8 +1,9 @@
 ## Queue
-Used to store and manage data in a specific order
+- Used to store and manage data in a specific order
 
-Uses the FIFO (first in first out) principle to perform operations
-
+- **Adheres to the FIFO contract** - Uses the FIFO (first in first out) principle to perform operations
+- **Remains an abstract data type(ADT)** - iys independent of any programming language and memory implementation. Describes the behavior of the structure, the operations available and rules governing them
+- 
 Used as a buffer in computer systems where we have speed mismatch btw two devices that communicate with each other eg CPU and keyboard or two devices in a network
 
 Used in operating system algorithms like CPU scheduling, memory management, and many standard algorithms like Breadth First Search of Graph, Level Order Traversal of a Tree.
@@ -73,3 +74,6 @@ Real-time application of Queue:
 - In a classical queue, a new element can only be inserted when the existing elements are deleted from the queue.
 - Searching an element takes O(N) time.
 - Maximum size of a queue must be defined prior in case of array implementation.
+### Choosing the implementation
+- Array based - use thi only when u want high throughput, cache locality and the data volume is known
+- Linked list based - use when the data volume is unpredictable/unknown
